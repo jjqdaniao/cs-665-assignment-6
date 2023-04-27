@@ -1,19 +1,27 @@
 
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
-| Name         | FIRST_NAME LAST_NAME       |
-| Date         | MM/DD/YYYY                 |
-| Course       | Fall / Spring / Summer     |
-| Assignment # |                            |
+| Name         | Zhilin Chang               |
+| Date         | 4/27/2023                  |
+| Course       | Spring                     |
+| Assignment # | #6 Delivery System         |
 
 # Assignment Overview
-Please add a paragraph or two overviewing the objectives of the assignment.
+Improvement of previous assignment#4
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/jjqdaniao/cs-665-assignment-6
 
 # Implementation Description 
 
+1.Based on the comments on the second assignment, I will also use the Observer pattern this time, and only use two interfaces instead of four, one for the Subject and one for the Observer. Because it splits the required methods into four different interfaces, this can reduce the flexibility and understandability of the code.
+Subject interface: responsible for adding, deleting and notifying observers
+Observer interface: responsible for receiving and processing notifications sent by topics
+
+2.In order to optimize the code, I introduced the factory pattern to create different types of drivers. By introducing the factory pattern, the logic of creating driver objects can be centralized in the DriverFactory class. This makes it easier to add new types of drivers, while keeping the testing program cleaner. When we need to add a new type of driver, we only need to add a new enumeration value in the DriverType enumeration, and then handle this new type in the DriverFactory class. In this way, different types of drivers do not need to be instantiated directly in the main program, but are implemented through factory classes, making the code more maintainable and extensible.
+
+3.I also introduced the strategy pattern to choose different notification methods according to different situations. For example, different notification methods such as email, SMS or instant messaging can be selected according to the urgency of the product or other conditions.
+However, I deprecated the update method in this pattern, because this approach may lead to the notification logic tightly coupled with the observer class, instead of the notification logic associated with a separate class in the strategy pattern. In some cases, this coupling may limit the maintainability and extensibility of the code
 
 For each assignment, please answer the following:
 
